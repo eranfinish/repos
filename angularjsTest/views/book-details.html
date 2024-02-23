@@ -1,0 +1,27 @@
+<div class="book-details-container" ng-if="$ctrl.showDetailsPanel" ng-attr-dir="{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'rtl' : 'ltr' }}">
+  <div class="close" ng-click="$ctrl.closeDetails()">X</div>
+  <div class="favorite">
+  <button ng-click="$ctrl.toggleFavorite($ctrl.selectedBook)" ng-class="{ 'favorite': $ctrl.isFavorite({ book: $ctrl.selectedBook }) }">
+     <img ng-src="{{ $ctrl.isFavorite({ book: $ctrl.selectedBook }) ? '/images/star_favorite.png' : '/images/starshapefavorite.png' }}"/>
+  </button>
+</div>
+  <div class="book-details">
+  <h2>{{ $ctrl.selectedBook.volumeInfo.title }}</h2> 
+  <div class="thumbnail">
+      <img class="{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'left' : 'right' }}"
+      ng-src="{{ $ctrl.selectedBook.volumeInfo.imageLinks && $ctrl.selectedBook.volumeInfo.imageLinks.smallThumbnail }}"/>
+  </div>
+  
+ 
+  <div class="details">
+      <h3>{{ $ctrl.selectedBook.volumeInfo.subtitle }}</h3>
+      <p><strong>{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'מחברים' : 'Authors' }}:</strong> {{ $ctrl.selectedBook.volumeInfo.authors.join(', ') }}</p>
+      <p><strong>{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'שנת הוצאה:' : 'Publish At' }}:</strong> {{ $ctrl.selectedBook.volumeInfo.publishedDate }}</p>
+      <p><strong>{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'בהוצאת' : 'Published By' }}:</strong> {{ $ctrl.selectedBook.volumeInfo.publisher }}</p>
+  </div>  
+ <p><strong>{{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'תיאור' : 'Description' }}:</strong> {{ $ctrl.selectedBook.volumeInfo.description }}</p>
+ 
+ <a ng-href="{{ $ctrl.selectedBook.volumeInfo.canonicalVolumeLink }}" target="_blank">
+      {{ $ctrl.selectedBook.volumeInfo.language === 'iw' ? 'פרטים נוספים' : 'More Details' }}</a>
+</div>
+</div>

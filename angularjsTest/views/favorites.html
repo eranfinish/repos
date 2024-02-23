@@ -1,0 +1,38 @@
+<!-- Favorites View -->
+<div ng-controller="FavoritesController">
+    <h2>ספרים מועדפים</h2>
+    <div class="favorites-container">
+        <div ng-repeat="book in favoriteBooks track by book.id"
+        ng-attr-dir="{{book.volumeInfo.language === 'iw' ? 'rtl' : 'ltr' }}">
+            <book-item book="book" show-details="showDetails(book)"></book-item>
+        </div>
+    </div>
+    <div class="book-details-container" ng-if="showDetailsPanel" ng-attr-dir="{{ selectedBook.volumeInfo.language === 'iw' ? 'rtl' : 'ltr' }}">
+   
+    <div class="close" ng-click="closeDetails()">X</div>
+    <div class="favorite">
+        <button ng-click="toggleFavorite(selectedBook)" ng-class="{ 'favorite': isFavorite(selectedBook) }">
+        <img src="{{ isFavorite(selectedBook) ? '/images/star_favorite.png' : '/images/starshapefavorite.png' }}"/>
+        </button>
+    </div>
+    <div class="book-details">
+        <h2>{{ selectedBook.volumeInfo.title }}</h2> 
+        <div class="thumbnail">
+            <img class="{{ selectedBook.volumeInfo.language === 'iw' ? 'left' : 'right' }}"
+            ng-src="{{selectedBook.volumeInfo.imageLinks && selectedBook.volumeInfo.imageLinks.smallThumbnail}}"/>
+        </div>
+        
+       
+        <div class="details">
+            <h3>{{ selectedBook.volumeInfo.subtitle }}</h3>
+            <p><strong>{{ selectedBook.volumeInfo.language === 'iw' ? 'מחברים' : 'Authors' }}:</strong> {{ selectedBook.volumeInfo.authors.join(', ') }}</p>
+            <p><strong>{{ selectedBook.volumeInfo.language === 'iw' ? 'שנת הוצאה:' : 'Publish At' }}:</strong> {{ selectedBook.volumeInfo.publishedDate }}</p>
+            <p><strong>{{ selectedBook.volumeInfo.language === 'iw' ? 'בהוצאת' : 'Published By' }}:</strong> {{ selectedBook.volumeInfo.publisher }}</p>
+        </div>  
+       <p><strong>{{ selectedBook.volumeInfo.language === 'iw' ? 'תיאור' : 'Description' }}:</strong> {{ selectedBook.volumeInfo.description }}</p>
+       
+       <a ng-href="{{ selectedBook.volumeInfo.canonicalVolumeLink }}" target="_blank">
+            {{ selectedBook.volumeInfo.language === 'iw' ? 'פרטים נוספים' : 'More Details' }}</a>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+app.service('FavoriteBooksService', function() {
+    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    this.isFavorite = function(book) {
+        if(book == null){
+            return;
+        }
+        var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        return favorites.some(function(favorite) {
+            return favorite.id === book.id;
+        });
+    };
+    this.getFavorites = function() {
+        return favorites;
+    };
+
+    this.addFavorite = function(book) {
+        var index = favorites.findIndex(function(favorite) {
+            return favorite.id === book.id;
+        });
+
+        if (index === -1) {
+            favorites.push(book);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+    };
+
+    this.removeFavorite = function(book) {
+        var index = favorites.findIndex(function(favorite) {
+            return favorite.id === book.id;
+        });
+
+        if (index !== -1) {
+            favorites.splice(index, 1);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        }
+    };
+    this.toggleFavorite = function(book) {
+        var index = favorites.findIndex(function(favorite) {
+            return favorite.id === book.id;
+        });
+
+        if (index !== -1) {
+            favorites.splice(index, 1);
+        } else {
+            favorites.push(book);
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    };
+});

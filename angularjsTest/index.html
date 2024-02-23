@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>SPA App with AngularJS</title>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" /> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script> 
+ 
+  <script src="app.js"></script>
+  <script src="services/book-service.js"></script>
+  <script src="services/favorite-books-service"></script>
+  <script src="components/bookItem.js"></script>
+  <script src="components/bookDetails.js"></script>
+ <!--  <script src="/services/user.service.js"></script>
+  <script src="controllers/user-list.controller.js"></script>
+  <script src="controllers/user-details.controller.js"></script>
+  <script src="controllers/user.actions.controller.js"></script> -->
+</head>
+<body>
+  <div ng-controller="MenuController">
+    <ul>
+        <li><a href="/">בית</a></li>
+        <li><a href="#!/favorites">מועדפים</a></li>
+        <li><a href="/login">Login</a></li>
+    </ul>
+</div>
+  <div ng-view></div>
+</body>
+</html>

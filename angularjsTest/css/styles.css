@@ -1,0 +1,144 @@
+body{
+    direction: rtl;
+    margin: 10vh 9vw;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    background: darkblue;
+    color: white;
+}
+.content{direction: ltr;}
+.books input, button{
+font-size: 30px;
+padding: 10px 30px;
+border-radius: 10px;
+}
+.books input{  
+    width: 50vw;
+    border: 1px solid gray;
+   
+    }
+.books-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 35px;
+    overflow: auto;
+    height: 40vh;
+}
+
+.book-item{
+    margin: 0 0 30px 30px;
+    width: 15vw;
+    height: 20vh;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border:1px solid royalblue;
+    overflow:hidden;
+}
+.book-item:hover{
+    background-color: royalblue;
+}
+.more{
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 50px;
+    cursor: pointer;
+    top: 132px;
+    left: -254px;
+    padding: 0;
+}
+
+.more-right{
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 50px;
+    cursor: pointer;
+    top: 132px;
+    left: 254px;
+    padding: 0;
+    z-index: 1;
+}
+.more img,.more-right img{
+    width: 50px;
+}
+
+.book{
+    position: relative;
+    top: -77px;
+}
+.book-details-container {
+    position: fixed;
+    width: 90vw;
+    height: 90vh;
+    top: 5vh;
+    left: 5vw;
+    background: #000031de;
+    box-shadow: 5px -4px 15px 1px #00003de8;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.book-details{
+
+    margin: 10vh 10vw 0;
+    overflow: auto;
+height: 70vh;
+}
+.book-details h2{
+    position: fixed;
+    margin: -8vh;
+    overflow: auto;
+    width: 80vw;
+    height: 7vh;
+
+}
+.close{
+    position: fixed;
+    top: 7vh;
+    left: 93vw;
+    font-size: xx-large;
+    font-weight: bold;
+    z-index: 3;
+}
+.thumbnail,.details{
+    display: inline-block;
+}
+.thumbnail .right{
+    height: 120px;
+    margin-right: 2vw;;
+}
+.thumbnail .left{
+    height: 120px;
+    margin-left: 2vw;;
+}
+.favorite{
+    position: fixed;
+
+}
+.favorite button{
+    border:none;
+    background: transparent;
+
+}
+.favorite img{
+    width:50px;
+}
+
+ul {
+    padding: 0;
+}
+ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+ul li a:hover {
+   background: royalblue;
+}
+
+
+ul a{
+    color: white;
+    padding:1vh 0 0 3vw;
+    text-decoration: auto;
+}

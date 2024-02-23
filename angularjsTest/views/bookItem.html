@@ -1,0 +1,7 @@
+<div class="book-item">
+    <button ng-click="showDetails(book)" class="{{book.volumeInfo.language === 'iw' ? 'more' : 'more-right' }}"> <img src="/images/moreDetails.png"/></button>
+    <div class="book">
+        <h3>{{ book.volumeInfo.title }}</h3>
+        <p>{{ book.volumeInfo.language === 'iw' ? 'מחברים' : 'Authors' }} {{ book.volumeInfo.authors.join(', ') }}</p>
+   </div>
+  </div>
